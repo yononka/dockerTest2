@@ -7,6 +7,7 @@ import allure
 
 @allure.feature('Feature1')
 @allure.story('Story1')
+@allure.step('step1')
 def test_title(browser):
     browser.get("http://www.google.com")
     title = "Google"
@@ -16,6 +17,7 @@ def test_title(browser):
 
 @allure.feature('Feature2')
 @allure.story('Story2')
+@allure.step('step2')
 def test_search(browser):
     browser.get("http://www.google.com")
     browser.find_element_by_name('q').send_keys('wikipedia')
@@ -26,3 +28,6 @@ def test_search(browser):
     # WebDriverWait(browser, 10).until(
     #     EC.title_contains(title))
     assert title in browser.title
+
+def test_just_assert():
+    assert 2==2
